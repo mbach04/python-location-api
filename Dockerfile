@@ -12,6 +12,7 @@ WORKDIR $APP_ROOT
 
 RUN which uvicorn
 
-uvicorn main:app --reload
+
+#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload"]
 

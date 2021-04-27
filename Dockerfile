@@ -1,6 +1,6 @@
 FROM registry.redhat.io/rhel8/python-38:latest
 
-EXPOSE 8000 
+EXPOSE 8080
 
 ENV APP_ROOT=/opt/app-root
 
@@ -14,5 +14,5 @@ RUN which uvicorn
 
 
 #CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
-CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload"]
+CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload", "--port", "8080"]
 

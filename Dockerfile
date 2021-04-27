@@ -13,5 +13,5 @@ WORKDIR $APP_ROOT
 RUN which uvicorn
 
 uvicorn main:app --reload
-CMD ["uvicorn", "main:app", "--reload"]
+CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload"]
 

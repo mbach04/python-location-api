@@ -1,4 +1,4 @@
-FROM rhel8/python-38:latest
+FROM registry.redhat.io/rhel8/python-38:latest
 
 EXPOSE 8000 
 

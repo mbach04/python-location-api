@@ -1,28 +1,15 @@
-from flask import Flask, json
-from random import uniform
-import os
+from typing import Optional
 
-PORT = int(os.environ.get('OPENSHIFT_PYTHON_PORT', 8080))
+from fastapi import FastAPI
 
-api = Flask(__name__)
-
-def gen_point():
-  x, y = uniform(-180,180), uniform(-90, 90)
-  return {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [x, y]
-    },
-    "properties": {
-      "name": "sample point"
-    }
-  }
+app = FastAPI()
 
 
-@api.route('/point', methods=['GET'])
-def get_point():
-  return json.dumps(gen_point())
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 
-if __name__ == '__main__':
-    api.run(host='0.0.0.0', port=PORT)
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Optional[str] = None):
+    return {"item_id": item_id, "q": q}

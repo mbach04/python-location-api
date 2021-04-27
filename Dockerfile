@@ -10,6 +10,8 @@ COPY main.py $APP_ROOT/
 
 WORKDIR $APP_ROOT
 
+RUN which uvicorn
+
 uvicorn main:app --reload
 CMD ["uvicorn", "main:app", "--reload"]
 

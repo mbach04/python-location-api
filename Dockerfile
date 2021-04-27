@@ -14,5 +14,5 @@ RUN which uvicorn
 
 
 #CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
-CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload", "--port", "8080"]
+CMD ["uvicorn", "--app-dir=$APP_ROOT", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
 
